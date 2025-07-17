@@ -7,7 +7,7 @@ query_component() {
     curl -fsSL 'https://ci.openharmony.cn/api/daily_build/build/list/component' \\
         -H 'Accept: application/json, text/plain, */*' \\
         -H 'Content-Type: application/json' \\
-        --data-raw '{"projectName":"openharmony","branch":"OpenHarmony-5.1.0-Release","pageNum":1,"pageSize":10,"deviceLevel":"","component":"dayu200-arm64_5.1.0-Release","type":1,"startTime":"2025070100000000","endTime":"20250707235959","sortType":"","sortField":"","hardwareBoard":"","buildStatus":"","buildFailReason":"","withDomain":1}'
+        --data-raw '{"projectName":"openharmony","branch":"OpenHarmony-5.1.0-Release","pageNum":1,"pageSize":10,"deviceLevel":"","component":"dayu200-arm64_5.1.0-Release","type":1,"startTime":"2025070100000000","endTime":"20990101235959","sortType":"","sortField":"","hardwareBoard":"","buildStatus":"","buildFailReason":"","withDomain":1}'
 }
 curl $(query_component | jq -r '.data.list.dataList[0].imgObsPath') -o dayu200-arm64.tar.gz
 EOF
