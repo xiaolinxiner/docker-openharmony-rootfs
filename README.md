@@ -1,13 +1,13 @@
 # Docker-openharmony-rootfs
 Because the userland of OpenHarmony can run on the Linux kernel, containerization of OpenHarmony is feasible.
 
-This project has turned OpenHarmony's mini rootfs into a Docker image, which allows us to run and test our command-line applications on Linux servers.
+This project has turned OpenHarmony's mini rootfs into a Docker image, which allows us to use Linux servers instead of physical OpenHarmony devices to run and test our command-line programs.
 
 ## Architecture support
 arm64 only
 
 ## Get image
-Pull from ghcr.io
+Pull from GitHub Container Registry
 ```sh
 docker pull ghcr.io/hqzing/docker-openharmony-rootfs:latest
 
