@@ -27,7 +27,7 @@ RUN mkdir ramdisk && \
     cp system/lib64/libc++_shared.so ramdisk/lib64/ && \
     cp -r /etc/ssl ramdisk/etc/ && \
     cp -r ramdisk /opt/
-RUN curl https://github.com/stunnel/static-curl/releases/download/8.15.0/curl-linux-aarch64-musl-8.15.0.tar.xz -o curl-linux-aarch64-musl-8.15.0.tar.xz && \
+RUN curl -L https://github.com/stunnel/static-curl/releases/download/8.15.0/curl-linux-aarch64-musl-8.15.0.tar.xz -o curl-linux-aarch64-musl-8.15.0.tar.xz && \
     mkdir curl-linux-aarch64-musl-8.15.0 && \
     tar -xf curl-linux-aarch64-musl-8.15.0.tar.xz -C curl-linux-aarch64-musl-8.15.0 && \
     cp curl-linux-aarch64-musl-8.15.0/curl /opt/ramdisk
