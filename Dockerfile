@@ -35,4 +35,7 @@ RUN curl -L https://github.com/stunnel/static-curl/releases/download/8.15.0/curl
 
 FROM scratch AS final
 COPY --from=builder /opt/ramdisk /
+RUN ln -s /bin /usr/bin && \
+    ln -s /lib /usr/lib && \
+    ln -s /lib64 /usr/lib64
 CMD ["/bin/sh"]
