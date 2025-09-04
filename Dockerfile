@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ubuntu:latest AS builder
 WORKDIR /src
-RUN apt update && apt install -y curl jq p7zip-full cpio
+RUN apt update && apt install -y curl jq p7zip-full cpio xz
 COPY <<EOF ./download-image.sh
 query_component() {
     curl -fsSL 'https://ci.openharmony.cn/api/daily_build/build/list/component' \\
@@ -30,7 +30,7 @@ RUN mkdir ramdisk && \
 RUN curl -L https://github.com/stunnel/static-curl/releases/download/8.15.0/curl-linux-aarch64-musl-8.15.0.tar.xz -o curl-linux-aarch64-musl-8.15.0.tar.xz && \
     mkdir curl-linux-aarch64-musl-8.15.0 && \
     tar -xf curl-linux-aarch64-musl-8.15.0.tar.xz -C curl-linux-aarch64-musl-8.15.0 && \
-    cp curl-linux-aarch64-musl-8.15.0/curl /opt/ramdisk
+    cp curl-linux-aarch64-musl-8.15.0/curl /opt/ramdisk/bin/
 
 FROM scratch AS final
 COPY --from=builder /opt/ramdisk /
