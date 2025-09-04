@@ -22,9 +22,10 @@ RUN mkdir ramdisk && \
     cpio -i -F ramdisk.img && \
     rm ramdisk.img && \
     cd .. && \
-    cp system/lib64/chipset-pub-sdk/libcrypto_openssl.z.so ramdisk/lib64/ && \
+    cp system/lib64/chipset-pub-sdk/libcrypto_openssl.z.so ramdisk/lib64/chipset-pub-sdk/ && \
     cp system/lib64/libc++.so ramdisk/lib64/ && \
     cp system/lib64/libc++_shared.so ramdisk/lib64/ && \
+    cp /etc/passwd ramdisk/etc/ && \
     cp -r /etc/ssl ramdisk/etc/ && \
     cp -r ramdisk /opt/
 RUN curl -L https://github.com/stunnel/static-curl/releases/download/8.15.0/curl-linux-aarch64-musl-8.15.0.tar.xz -o curl-linux-aarch64-musl-8.15.0.tar.xz && \
