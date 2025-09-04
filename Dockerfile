@@ -32,6 +32,6 @@ RUN curl https://github.com/stunnel/static-curl/releases/download/8.15.0/curl-li
     tar -xf curl-linux-aarch64-musl-8.15.0.tar.xz -C curl-linux-aarch64-musl-8.15.0 && \
     cp curl-linux-aarch64-musl-8.15.0/curl /opt/ramdisk
 
-FROM scratch
+FROM scratch AS final
 COPY --from=builder /opt/ramdisk /
 CMD ["/bin/sh"]
