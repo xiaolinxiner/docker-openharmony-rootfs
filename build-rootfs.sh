@@ -26,6 +26,8 @@ cp system/etc/passwd ramdisk/etc/
 ln -s ../bin ramdisk/usr/bin
 ln -s ../lib ramdisk/usr/lib
 ln -s ../lib64 ramdisk/usr/lib64
+mkdir ramdisk/opt
+mkdir ramdisk/tmp
 
 # Replace OpenHarmony toybox with offical toybox
 rm ramdisk/bin/toybox
