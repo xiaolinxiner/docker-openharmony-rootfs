@@ -34,7 +34,7 @@ docker run -itd --name=ohos ghcr.io/hqzing/docker-openharmony-rootfs:latest
 docker exec -it ohos sh
 ```
 
-## Need more command-line tools?
+## Need more tools?
 The rootfs of OpenHarmony is mainly composed of three parts: [musl libc](https://musl.libc.org/), [toybox](https://landley.net/toybox), and [mksh](https://github.com/MirBSD/mksh).
 
 In this rootfs, the command-line tools are provided by `toybox`, which offers a very limited number of tools.
