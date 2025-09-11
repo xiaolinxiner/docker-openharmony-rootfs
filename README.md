@@ -43,7 +43,7 @@ Additionally, OpenHarmony has not yet provided a package manager. It's difficult
 
 In order to provide the possibility of expanding more tools, I pre-set a `curl` in the image, which users can use to download more software.
 
-Many software for the arm64-linux-musl platform can run in this container, such as busybox here.
+Many software for the arm64-linux-musl platform can run in this container, such as `busybox` here.
 ```sh
 curl https://dl-cdn.alpinelinux.org/v3.22/main/aarch64/busybox-static-1.37.0-r18.apk -o busybox-static-1.37.0-r18.apk
 tar -zxf busybox-static-1.37.0-r18.apk
