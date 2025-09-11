@@ -37,9 +37,9 @@ docker exec -it ohos sh
 ## Need more command-line tools?
 The rootfs of OpenHarmony is mainly composed of three parts: [musl libc](https://musl.libc.org/), [toybox](https://landley.net/toybox), and [mksh](https://github.com/MirBSD/mksh).
 
-In this rootfs, the command-line tools are provided by `toybox`, which offers a very limited number of command-line tools.
+In this rootfs, the command-line tools are provided by `toybox`, which offers a very limited number of tools.
 
-Additionally, OpenHarmony has not yet provided a package manager. It's difficult for us to increase command-line tools. 
+Additionally, since OpenHarmony has not yet provided a package manager, we can't conveniently install new software through one.
 
 In order to provide the possibility of expanding more tools, I pre-set a `curl` in the image, which users can use to download more software.
 
