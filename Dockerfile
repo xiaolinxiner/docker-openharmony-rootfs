@@ -11,10 +11,10 @@ RUN apk update && \
 
 FROM ubuntu:latest AS rootfsbuilder
 WORKDIR /src
-RUN apt update && apt install -y curl jq p7zip-full cpio xz-utils
 COPY build-rootfs.sh build-rootfs.sh
 COPY NOTICE.txt NOTICE.txt
 COPY --from=curlbuilder /opt/curl-musl /opt/curl-musl
+RUN apt update && apt install -y curl jq p7zip-full cpio xz-utils
 RUN sh build-rootfs.sh
 
 FROM scratch AS final
