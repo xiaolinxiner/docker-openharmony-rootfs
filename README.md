@@ -15,11 +15,16 @@ docker pull ghcr.io/hqzing/docker-openharmony-rootfs:latest
 # docker pull ghcr.nju.edu.cn/hqzing/docker-openharmony-rootfs:latest
 ```
 
-Or build image yourself
+Or build image yourself (Use an ARM server or Docker Buildx on a non ARM server)
 ```sh
 git clone https://github.com/hqzing/docker-openharmony-rootfs
 cd docker-openharmony-rootfs
+
+# Use an ARM server
 docker build -t docker-openharmony-rootfs:latest .
+
+# Use Docker Buildx on a non ARM server
+DOCKER_BUILDKIT=1 docker buildx build -t docker-openharmony-rootfs:latest --platform linux/arm64 .
 ```
 
 ## Usage
