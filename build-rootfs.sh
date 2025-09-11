@@ -60,7 +60,7 @@ ln -s ./chipset-pub-sdk/libcurl_shared.z.so ramdisk/lib64/libcurl.so.4
 mkdir ramdisk/etc/security
 cp -r system/etc/security/certificates ramdisk/etc/security/
 cp system/etc/openssl.cnf ramdisk/etc/
-if [ -f "/opt/curl-musl/bin/curl" ]; then cp /opt/curl-musl/bin/curl ramdisk/bin/; fi
+cp /opt/curl-musl/bin/curl ramdisk/bin/
 
 # Check if NOTICE.txt match actual files.
 # This NOTICE.txt file was copied from system.img and is located in system/etc/NOTICE.txt.
