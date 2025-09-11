@@ -55,7 +55,7 @@ Or you can find additional software that has been ported to OpenHarmony through 
 
 To use this image in GitHub workflow, you first need to use an arm64 runner. GitHub provides arm64 [partner images](https://github.com/actions/partner-runner-images) that we can use for free.
 
-It should be noted that there is a very commonly used workflow called `actions/checkout`, which relies on the Node.js environment, and we need to give it special treatment (Refer to https://github.com/actions/runner/issues/801).
+It should be noted that there is a very commonly used workflow called `actions/checkout`, which relies on the Node.js environment, and we need to give it special treatment.
 
 ```yml
 jobs:
@@ -67,7 +67,7 @@ jobs:
       volumes:
         - /tmp/node20-ohos:/__e/node20:rw,rshared
     steps:
-      - name: Allow Linux musl containers on arm64 runners
+      - name: Setup node for actions/checkout
         run: |
           curl -L -O https://github.com/hqzing/build-ohos-node/releases/download/v24.2.0/node-v24.2.0-openharmony-arm64.tar.gz
           tar -zxf node-v24.2.0-openharmony-arm64.tar.gz -C /opt
@@ -77,3 +77,5 @@ jobs:
         uses: actions/checkout@v4
       # Do your work...
 ```
+
+ (Refer to https://github.com/actions/runner/issues/801)
