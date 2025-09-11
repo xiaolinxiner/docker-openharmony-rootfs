@@ -53,6 +53,8 @@ ln -s /bin/busybox /bin/wget
 # now you can use 'vi' and 'wget' command
 ```
 
+And you can find more 'openharmony version' software via this community: https://gitcode.com/OpenHarmonyPCDeveloper
+
 ## Use it on gitHub workflow
 
 The `actions/checkout` workflow depends on the Node.js environment, and we need to do special handling for it.
