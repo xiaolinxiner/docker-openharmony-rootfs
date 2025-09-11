@@ -49,7 +49,8 @@ curl https://dl-cdn.alpinelinux.org/v3.22/main/aarch64/busybox-static-1.37.0-r18
 tar -zxf busybox-static-1.37.0-r18.apk
 cp ./bin/busybox.static /bin/busybox
 ln -s /bin/busybox /bin/vi
-# now you can use 'vi' command
+ln -s /bin/busybox /bin/wget
+# now you can use 'vi' and 'wget' command
 ```
 
 # Use it on GitHub workflow
