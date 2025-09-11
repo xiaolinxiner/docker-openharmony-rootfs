@@ -46,8 +46,9 @@ In order to provide the possibility of expanding more tools, I pre-set a `curl` 
 Many software for the arm64-linux-musl platform can run in this container, such as `busybox` here.
 ```sh
 curl -L -O https://dl-cdn.alpinelinux.org/v3.22/main/aarch64/busybox-static-1.37.0-r19.apk
-tar -zxf busybox-static-1.37.0-r19.apk
-cp ./bin/busybox.static /bin/busybox
+mkdir -p /tmp/busybox
+tar -zxf busybox-static-1.37.0-r19.apk -C /tmp/busybox
+cp /tmp/busybox/bin/busybox.static /bin/busybox
 ln -s /bin/busybox /bin/vi
 ln -s /bin/busybox /bin/wget
 # now you can use 'vi' and 'wget' command
