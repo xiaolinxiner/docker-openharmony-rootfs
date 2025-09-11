@@ -17,16 +17,16 @@ docker pull ghcr.io/hqzing/docker-openharmony-rootfs:latest
 
 Or build image yourself
 ```sh
+# Use an arm64 server
 git clone https://github.com/hqzing/docker-openharmony-rootfs
 cd docker-openharmony-rootfs
-
-# Use an arm64 server
 docker build -t docker-openharmony-rootfs:latest .
 ```
 
 ## Usage
 Run the container with default command
 ```sh
+# Use an arm64 server
 docker run -itd --name=ohos ghcr.io/hqzing/docker-openharmony-rootfs:latest
 docker exec -it ohos sh
 ```
