@@ -22,9 +22,6 @@ cd docker-openharmony-rootfs
 
 # Use an arm64 server
 docker build -t docker-openharmony-rootfs:latest .
-
-# Use Docker Buildx on a non arm64 server
-# DOCKER_BUILDKIT=1 docker buildx build -t docker-openharmony-rootfs:latest --platform linux/arm64 .
 ```
 
 ## Usage
