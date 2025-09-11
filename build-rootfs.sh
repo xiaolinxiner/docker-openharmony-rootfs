@@ -12,6 +12,7 @@ curl $(query_component | jq -r '.data.list.dataList[0].imgObsPath') -o dayu200-a
 tar -zxf dayu200-arm64.tar.gz
 
 # Extract necessary files from the operating system image
+mkdir system
 7z x system.img -osystem
 mkdir ramdisk
 cp ramdisk.img ramdisk/ramdisk.img.gz
