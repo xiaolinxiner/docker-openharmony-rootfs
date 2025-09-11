@@ -56,7 +56,7 @@ ln -s /bin/busybox /bin/wget
 
 Or you can find more 'openharmony version' software via this community: https://gitcode.com/OpenHarmonyPCDeveloper
 
-## Use it on GitHub workflow
+## Use on GitHub workflow
 
 To use this image in GitHub workflow, you first need to use an arm64 runner. GitHub provides arm64 [partner images](https://github.com/actions/partner-runner-images) that we can use for free.
 
