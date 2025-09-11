@@ -55,3 +55,25 @@ ln -s /bin/busybox /bin/wget
 
 # Use it on GitHub workflow
 
+The `actions/checkout` workflow depends on the Node.js environment, and we need to do special handling for it.
+
+```yml
+jobs:
+  buid:
+    name: build
+    runs-on: ubuntu-24.04-arm
+    container:
+      image: ghcr.io/hqzing/docker-openharmony-rootfs:latest
+      volumes:
+        - /tmp/node20-ohos:/__e/node20:rw,rshared
+    steps:
+      - name: Allow Linux musl containers on ARM64 runners
+        run: |
+          curl -L https://github.com/hqzing/build-ohos-node/releases/download/v24.2.0/node-v24.2.0-openharmony-arm64.tar.gz -o node-v24.2.0-openharmony-arm64.tar.gz
+          tar -zxf node-v24.2.0-openharmony-arm64.tar.gz -C /opt
+          mkdir -p /__e/node20/bin
+          ln -s /opt/node-v24.2.0-openharmony-arm64/bin/node /__e/node20/bin/node
+      - name: chekout
+        uses: actions/checkout@v4
+      # Do your work...
+```
