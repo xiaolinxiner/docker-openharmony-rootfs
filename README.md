@@ -49,7 +49,7 @@ ln -s /bin/busybox /bin/wget
 # now you can use 'vi' and 'wget' command
 ```
 
-Or you can find more 'openharmony version' software via [this community](https://gitcode.com/OpenHarmonyPCDeveloper).
+Or you can find additional software that has been ported to OpenHarmony through [this community](https://gitcode.com/OpenHarmonyPCDeveloper).
 
 ## Use on GitHub workflow
 
