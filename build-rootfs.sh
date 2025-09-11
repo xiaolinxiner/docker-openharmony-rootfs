@@ -33,7 +33,6 @@ mkdir ramdisk/tmp
 rm ramdisk/bin/toybox
 curl https://landley.net/bin/toybox/0.8.10/toybox-aarch64 -o ramdisk/bin/toybox
 chmod +x ramdisk/bin/toybox
-ln -s toybox ramdisk/bin/wget
 
 # These files are not needed because init is not required in the container
 rm ramdisk/init
