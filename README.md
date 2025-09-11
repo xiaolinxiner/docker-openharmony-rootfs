@@ -20,10 +20,10 @@ Or build image yourself
 git clone https://github.com/hqzing/docker-openharmony-rootfs
 cd docker-openharmony-rootfs
 
-# Use an ARM server
+# Use an arm64 server
 docker build -t docker-openharmony-rootfs:latest .
 
-# Use Docker Buildx on a non ARM server
+# Use Docker Buildx on a non arm64 server
 # DOCKER_BUILDKIT=1 docker buildx build -t docker-openharmony-rootfs:latest --platform linux/arm64 .
 ```
 
@@ -43,7 +43,7 @@ Additionally, OpenHarmony has not yet provided a package manager. It's difficult
 
 In order to provide the possibility of expanding more tools, I pre-set a `curl` in the image, which users can use to download more software.
 
-Many software for the linux-arm64-musl platform can run in this container, such as busybox here.
+Many software for the arm64-linux-musl platform can run in this container, such as busybox here.
 ```sh
 curl https://dl-cdn.alpinelinux.org/v3.22/main/aarch64/busybox-static-1.37.0-r18.apk -o busybox-static-1.37.0-r18.apk
 tar -zxf busybox-static-1.37.0-r18.apk
@@ -53,11 +53,13 @@ ln -s /bin/busybox /bin/wget
 # now you can use 'vi' and 'wget' command
 ```
 
-Or you can find more 'openharmony version' open-source software via this community: https://gitcode.com/OpenHarmonyPCDeveloper
+Or you can find more 'openharmony version' software via this community: https://gitcode.com/OpenHarmonyPCDeveloper
 
-## Use it on github workflow
+## Use it on GitHub workflow
 
-The `actions/checkout` workflow depends on the Node.js environment, and we need to do special handling for it.
+To use this image in GitHub workflow, you first need to use an arm64 runner. GitHub provides arm64 [partner images](https://github.com/actions/partner-runner-images) that we can use for free.
+
+It should be noted that there is a very commonly used workflow called `actions/checkout`, which relies on the Node.js environment, and we need to give it special treatment.
 
 ```yml
 jobs:
@@ -69,7 +71,7 @@ jobs:
       volumes:
         - /tmp/node20-ohos:/__e/node20:rw,rshared
     steps:
-      - name: Allow Linux musl containers on ARM64 runners
+      - name: Allow Linux musl containers on arm64 runners
         run: |
           curl -L -O https://github.com/hqzing/build-ohos-node/releases/download/v24.2.0/node-v24.2.0-openharmony-arm64.tar.gz
           tar -zxf node-v24.2.0-openharmony-arm64.tar.gz -C /opt
