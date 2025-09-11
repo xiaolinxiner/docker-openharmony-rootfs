@@ -37,28 +37,20 @@ docker exec -it ohos sh
 ## Need more command-line tools?
 The rootfs of OpenHarmony is mainly composed of three parts: [musl libc](https://musl.libc.org/), [toybox](https://landley.net/toybox), and [mksh](https://github.com/MirBSD/mksh).
 
-In this rootfs, the command-line tools are provided by `toybox`, which offers a very limited number of command-line tools. For example, it currently lacks tools such as `vi` and `wget`.
+In this rootfs, the command-line tools are provided by `toybox`, which offers a very limited number of command-line tools.
 
 Additionally, OpenHarmony has not yet provided a package manager. It's difficult for us to increase command-line tools. 
 
-To temporarily meet the basic needs, I offer a third-party solution: We can download a statically linked `busybox` and place it into the container for use.
+In order to provide the possibility of expanding more tools, I pre-set a `curl` in the system, which users can use to download more software.
 
+Many open-source software for the linux-arm64-musl platform can run in this container, such as busybox here.
 ```sh
-wget https://dl-cdn.alpinelinux.org/v3.22/main/aarch64/busybox-static-1.37.0-r18.apk
+curl https://dl-cdn.alpinelinux.org/v3.22/main/aarch64/busybox-static-1.37.0-r18.apk -o busybox-static-1.37.0-r18.apk
 tar -zxf busybox-static-1.37.0-r18.apk
-
-docker run -itd --name=ohos ghcr.io/hqzing/docker-openharmony-rootfs:latest
-docker cp ./bin/busybox.static ohos:/bin/busybox
-
-docker exec -t ohos ln -s /bin/busybox /bin/vi
-docker exec -t ohos ln -s /bin/busybox /bin/wget
+cp ./bin/busybox.static /bin/busybox
+ln -s /bin/busybox /bin/vi
+# now you can use 'vi' command
 ```
 
-Now we can use `vi` and `wget` in the container
+# Use it on GitHub workflow
 
-```sh
-docker exec -it ohos sh
-
-vi --help
-wget --help
-```
