@@ -41,7 +41,7 @@ In this rootfs, the command-line tools are provided by `toybox`, which offers a 
 
 Additionally, OpenHarmony has not yet provided a package manager. It's difficult for us to increase command-line tools. 
 
-In order to provide the possibility of expanding more tools, I pre-set a `curl` in the system, which users can use to download more software.
+In order to provide the possibility of expanding more tools, I pre-set a `curl` in the image, which users can use to download more software.
 
 Many open-source software for the linux-arm64-musl platform can run in this container, such as busybox here.
 ```sh
