@@ -36,7 +36,7 @@ In this rootfs, the command-line tools are provided by `toybox`, which offers a 
 
 Additionally, since OpenHarmony has not yet provided a package manager, we can't conveniently install new software through one.
 
-To enable tool extensibility, `curl` is pre-installed in the image so that you can download additional software on your own.
+All I can do is pre-install `curl` in the image so you can use it to download other software yourself.
 
 Many software for the arm64-linux-musl platform can run in this container, such as `busybox` here.
 ```sh
