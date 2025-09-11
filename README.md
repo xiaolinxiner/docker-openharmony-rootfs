@@ -77,7 +77,7 @@ jobs:
           tar -zxf node-v24.2.0-openharmony-arm64.tar.gz -C /opt
           mkdir -p /__e/node20/bin
           ln -s /opt/node-v24.2.0-openharmony-arm64/bin/node /__e/node20/bin/node
-      - name: chekout
+      - name: Chekout
         uses: actions/checkout@v4
       # Do your work...
 ```
