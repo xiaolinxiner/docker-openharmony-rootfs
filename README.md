@@ -70,8 +70,8 @@ jobs:
       - name: Setup node for actions/checkout
         run: |
           curl -L -O https://github.com/hqzing/build-ohos-node/releases/download/v24.2.0/node-v24.2.0-openharmony-arm64.tar.gz
+          mkdir -p /opt /__e/node20/bin
           tar -zxf node-v24.2.0-openharmony-arm64.tar.gz -C /opt
-          mkdir -p /__e/node20/bin
           ln -s /opt/node-v24.2.0-openharmony-arm64/bin/node /__e/node20/bin/node
       - name: Chekout
         uses: actions/checkout@v4
