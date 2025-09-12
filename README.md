@@ -55,7 +55,7 @@ Or you can find additional software that has been ported to OpenHarmony through 
 
 To use this image in GitHub workflow, you first need to use an arm64 runner. GitHub provides arm64 [partner images](https://github.com/actions/partner-runner-images) that we can use for free.
 
-It should be noted that there is a very commonly used workflow called `actions/checkout`, which relies on the Node.js environment, and we need to give it special treatment.
+It should be noted that there is a very commonly used workflow called `actions/checkout`, which depends on the Node.js environment, and we need to give it special treatment.
 
 ```yml
 jobs:
