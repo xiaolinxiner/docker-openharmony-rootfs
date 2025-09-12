@@ -77,5 +77,11 @@ if ! cmp -s $temp_a $temp_b; then
     exit 1
 fi
 
+
+echo "root:x:0:0:root:/root:/bin/sh" > ramdisk/etc/passwd
+echo "root:x:0:" > ramdisk/etc/group
+mkdir ramdisk/root
+chmod 700 ramdisk/root
+
 cp NOTICE.txt ramdisk/etc/
 cp -r ramdisk /opt/ramdisk
